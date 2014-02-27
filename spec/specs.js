@@ -6,13 +6,32 @@ beforeEach(function() {
 
 
 describe("Contact", function() {
-	// describe("createAddress", function() {
-	// 	it("creates an address object", function() {
-	// 		var testContact = Contact.create();
-	// 		var testAddress = testContact.createAddress();
-	// 		Address.isPrototypeOf(testAddress).should.equal(true);
-	// 	});
-	// });
+	describe("createPhoneNumber", function() {
+		it("creates a phone number object", function() {
+			var testContact = Contact.create();
+			var testPhone = testContact.createPhoneNumber();
+			PhoneNumber.isPrototypeOf(testPhone).should.equal(true);
+		});
+		it("adds the phone number to the phones property of the contact", function() {
+			var testContact = Contact.create();
+			var testPhone = testContact.createPhoneNumber();
+			testContact.phones.should.eql([testPhone]);
+		});
+	});
+
+	describe("createAddress", function() {
+	 	it("creates an address object", function() {
+	 		var testContact = Contact.create();
+	 		var testAddress = testContact.createAddress();
+	 		Address.isPrototypeOf(testAddress).should.equal(true);
+	 	});
+
+	 	it("adds the address to the addresses property of the contact", function() {
+	 		var testContact = Contact.create();
+	 		var testAddress = testContact.createAddress();
+	 		testContact.addresses.should.eql([testAddress]);
+	 	});
+	 });
 
 
 	describe("create", function() {
